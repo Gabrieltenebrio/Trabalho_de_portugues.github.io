@@ -326,6 +326,7 @@ h2 {
   color: var(--paper);
   padding: 92px 0 110px;
   position: relative;
+  overflow-x: hidden;
 }
 
 .comparacoes::after {
@@ -564,6 +565,8 @@ blockquote small {
 }
 
 .summary-table {
+  width: 100%;
+  max-width: 100%;
   overflow-x: auto;
   border-top: 1px solid rgba(255, 255, 255, .2);
 }
@@ -786,8 +789,16 @@ blockquote small {
   }
 
   .leitura summary {
-    grid-template-columns: 38px 1fr auto;
+    grid-template-columns: 30px minmax(0, 1fr) auto;
     gap: 12px;
+  }
+
+  .leitura summary>span:nth-child(2) {
+    min-width: 0;
+  }
+
+  .leitura summary small {
+    overflow-wrap: anywhere;
   }
 
   .summary-action {
